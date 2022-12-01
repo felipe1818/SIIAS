@@ -1,34 +1,44 @@
 # language: es
-@InicioSesion
-Característica: Inicio de sesión
+@OficioRevisionBanco
+Característica: Oficio Revision Banco
   Como un usuario de la entidad cuando ingrese credenciales entonces ingreso al aplicativo.
 
   Antecedentes:
-    #Dados los datos del ambiente y usuarios del sistema
+     #Los usuario podran generar un reporte
 
-    @AgregararticuloComprarlo
-  Escenario: Iniciar sesion y agregar y comprar un articulo
-      Dado inicio sesion en el aplicativo con email y clave
-      Cuando ingresa las credenciales correctas podra visualizar los articulos
-      Entonces podremos agregar un articulo
-      Dado ya agregado el articulo podremos verificarlo
-      Cuando  ingresar primer nombre segundo nombre y codigo postal
-      Entonces verificar el articulo y visualizar la pantalla descripcion
-      Dado visualizar descripcion del articulo
-      Cuando si el articulo es correcto finalizaremos
-      Entonces vizualizar la pantalla cuando finalizemos la compra
+  Escenario: usuario podra generar un reporte
+
+    #login
+
+    Dado ingresar usuario "coordinadorcc" y contrasena "123$123"
+    Cuando se visualiza la pantalla de inicio
+    Entonces seleccionar boton "Buscar"
 
 
-  @AgregararticuloCancelarlo
-  Escenario: Iniciar sesion y cancelar un articulo
-    Dado inicio sesion en el aplicativo con email y clave
-    Cuando ingresa las credenciales correctas podra visualizar los articulos
-    Entonces podremos agregar un articulo
-    Dado ya agregado el articulo podremos verificarlo
-    Cuando  ingresar primer nombre segundo nombre y codigo postal
-    Entonces verificar el articulo y visualizar la pantalla descripcion
-    Dado visualizar descripcion del articulo
-    Cuando cancelar el articulo
-    Entonces vizualizar la pantalla principal y cerrar sesion
-      
-      
+    #Buscar un expediente
+
+    Dado agregar ano del expediente "2019" y numero expediente "7"
+    #Cuando agregar area origina proceso "Subdirección de vigilancia en Salud Publica"
+    #Cuando agregar estado expediente "Expediente Creado en Direccion para reparto" y estado cobro coactivo "ACUERDOS DE PAGO"
+    Entonces seleccionar boton "buscar"
+
+    Dado seleccionar expediente
+    Cuando se visualiza la información del expediente
+    Entonces seleccionar boton "Generar plantilla"
+
+    #Generar plantilla
+
+    Dado se visualiza pantalla generar plantilla
+    Cuando agregar tipo de plantilla "Comunicación" y tipo de documento "Comunicación a Bancos"
+    Entonces agregar numero de folios "2"
+
+    Dado seleccionar boton "Seleccionar todos"
+    Cuando seleccionar boton "Asociar expediente"
+    Entonces agregar ano expediente "2020" y numero del expedente "14"
+
+    Dado seleccionar direccion area origen "Subdirección de vigilancia en Salud Publica"
+    Cuando seleccionar boton "Consultar"
+    Entonces agregar quien revisa "Abogado Juridica" quien firma "Director Prueba"
+
+    Dado seleccionar boton "Generar documento"
+    Cuando descargar archivo

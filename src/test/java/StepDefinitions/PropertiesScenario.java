@@ -5,7 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
+import io.cucumber.java.es.E;
 import io.cucumber.java.es.Entonces;
+import org.checkerframework.checker.units.qual.C;
 
 import java.io.IOException;
 
@@ -14,93 +16,128 @@ public class PropertiesScenario {
 
     SeleniumFunctions functions = new SeleniumFunctions();
 
-    @Dado("inicio sesion en el aplicativo con email y clave")
-    public void iniciosesioaplicativo() throws Exception {
-        functions.switchToNewTab("https://www.saucedemo.com/", "suacedemo");
+    @Dado("ingresar usuario {string} y contrasena {string}")
+    public void ingresarusuariocontrasena(String usuario, String contrasena) throws Exception {
+        functions.switchToNewTab("http://dev.saludcapital.gov.co/SiiasPruebas2/inicio/login.aspx", "SIIAS");
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.iClicInElement("email");
-        functions.iSetElementWithText("email", "standard_user");
-        functions.iClicInElement("clave");
-        functions.iSetElementWithText("clave", "secret_sauce");
+        functions.iSetElementWithText("usuario", usuario);
+        functions.iSetElementWithText("contrasena", contrasena);
         functions.attachScreenShot();
-        functions.iClicInElement("login");
-        functions.iWaitTime(4);
+        functions.iClicInElement("iniciarsesion");
         functions.attachScreenShot();
     }
 
-    @Cuando("ingresa las credenciales correctas podra visualizar los articulos")
-    public void ingresacredenciales() throws IOException {
+    @Cuando("se visualiza la pantalla de inicio")
+    public void visualizapantallainicio() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("cerrarventana");
         functions.attachScreenShot();
     }
 
-    @Entonces("podremos agregar un articulo")
-    public void podremosagregar() throws Exception {
-        functions.iClicInElement("articulo1");
-        functions.iClicInElement("articulo2");
+    @Entonces("seleccionar boton {string}")
+    public void seleccionarboton(String boton) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement(boton);
+        functions.iClicInElement(boton);
         functions.attachScreenShot();
     }
 
-    @Dado("ya agregado el articulo podremos verificarlo")
-    public void agregadoarticuloverificar() throws Exception {
-        functions.iClicInElement("carrito");
+    @Dado("agregar ano del expediente {string} y numero expediente {string}")
+    public void agregaranoynumeroexpediente(String anoExpedien, String numeroExpedien) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("anoExpedien");
+        functions.iSelectContainsText("listadespegable", anoExpedien);
+        functions.iSetElementWithText("numeroExpedien", numeroExpedien);
         functions.attachScreenShot();
-        functions.iClicInElement("verificar");
+
     }
 
-    @Cuando("ingresar primer nombre segundo nombre y codigo postal")
-    public void ingresarnombrecodigo() throws Exception {
-        functions.attachScreenShot();
-        functions.iClicInElement("nombreP");
-        functions.iSetElementWithText("nombreP", "Johan");
-        functions.iClicInElement("nombreS");
-        functions.iSetElementWithText("nombreS", "Felipe");
-        functions.iClicInElement("codigo");
-        functions.iSetElementWithText("codigo", "110321");
-        functions.attachScreenShot();
-    }
-
-    @Entonces("verificar el articulo y visualizar la pantalla descripcion")
-    public void verificararticulo() throws Exception {
-        functions.iClicInElement("continuar");
-        functions.iWaitTime(5);
+    @Cuando("agregar estado expediente {string} y estado cobro coactivo {string}")
+    public void agregarestadocobrocoactivo(String estadoExpedi, String estadoCobroCo) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("estadoExpedi");
+        functions.iSelectContainsText("listadespegable", estadoExpedi);
+        functions.iClicInElement("estadoCobroCo");
+        functions.iSelectContainsText("listadespegable", estadoCobroCo);
         functions.attachScreenShot();
     }
 
-    @Dado("visualizar descripcion del articulo")
-    public void visualizardescripcion() throws IOException, InterruptedException {
-        functions.attachScreenShot();
-        functions.iWaitTime(5);
+    @Cuando("agregar area origina proceso {string}")
+    public void agregarareaorignaproceso(String areaproceso) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("areaproceso");
+        functions.iSelectContainsText("listadespegable", areaproceso);
     }
 
-    @Cuando("si el articulo es correcto finalizaremos")
-    public void articulocorrecto() throws Exception {
-        functions.iClicInElement("finalizar");
-    }
-
-    @Entonces("vizualizar la pantalla cuando finalizemos la compra")
-    public void vizualizarpantalla() throws Exception {
+    @Entonces("seleccionar expediente")
+    public void seleccionarexpediente() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("seleccionar");
+        functions.iClicInElement("seleccionar");
         functions.attachScreenShot();
         functions.iWaitTime(5);
-        functions.iClicInElement("home");
-        functions.iWaitTime(5);
+
+    }
+
+    @Cuando("se visualiza la información del expediente")
+    public void sevisualizainformaciónexpediente() throws IOException {
         functions.attachScreenShot();
     }
 
-    @Cuando("cancelar el articulo")
-    public void cancelararticulo() throws Exception {
-        functions.iClicInElement("cancelar");
-        functions.iWaitTime(5);
+    @Dado("se visualiza pantalla generar plantilla")
+    public void sevisualizapantallagenerar() throws IOException {
+        functions.attachScreenShot();
     }
 
-    @Entonces("vizualizar la pantalla principal y cerrar sesion")
-    public void vizualizarpantallaprincipal() throws Exception {
-        functions.attachScreenShot();
+    @Cuando("agregar tipo de plantilla {string} y tipo de documento {string}")
+    public void agregartipodocumentotipoplantilla(String tipoPlantilla, String tipoDocumento) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("tipoPlantilla");
+        functions.iSelectContainsText("listadespegable", tipoPlantilla);
         functions.iWaitTime(5);
-        functions.iClicInElement("menu");
+        functions.iClicInElement("tipoDocumento");
+        functions.iSelectContainsText("listadespegable", tipoDocumento);
         functions.attachScreenShot();
-        functions.iClicInElement("logout");
-        functions.iWaitTime(5);
+    }
+
+    @Entonces("agregar numero de folios {string}")
+    public void agregarnumerofolios(String numeroFolio) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSetElementWithText("numeroFolio", numeroFolio);
+    }
+
+    @Dado("agregar ano expediente {string} y numero del expedente {string}")
+    public void agregaranonumeroexpedoente(String anoexpedeinet, String numeroexpeti) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSetElementWithText("anoexpedeinet", anoexpedeinet);
+        functions.iSetElementWithText("numeroexpeti", numeroexpeti);
         functions.attachScreenShot();
+    }
+
+    @Cuando("seleccionar direccion area origen {string}")
+    public void seleccionardireccionareaorigen(String direccionArea) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("direccionArea");
+        functions.iSelectContainsText("listadespegable", direccionArea);
+        functions.attachScreenShot();
+    }
+
+    @Entonces("agregar quien revisa {string} quien firma {string}")
+    public void agregarquienresivaquienfirma(String quiernresiva, String quienfirma) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("quiernresiva");
+        functions.iSelectContainsText("listadespegable", quiernresiva);
+        functions.iClicInElement("Encabezado");
+        functions.iClicInElement("quienfirma");
+        functions.iSelectContainsText("listadespegable", quienfirma);
+    }
+
+    @Dado("descargar archivo")
+    public void descargararchivo() throws Exception {
+        functions.iLoadTheDOMInformation("Princioal.json");
+        functions.iClicInElement("DescargarDocumento");
+        functions.attachScreenShot();
+        functions.iClicInElement("Salir");
     }
 
 }

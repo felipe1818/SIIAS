@@ -1,81 +1,118 @@
 {
-  "email": {
+  "usuario": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='user-name']"
+    "ValueToFind": "//input[@id='ctl00_formularios_lgnIngreso_UserName']"
   },
-
-  "clave": {
+  "contrasena": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='password']"
+    "ValueToFind": "//input[@id='ctl00_formularios_lgnIngreso_Password']"
   },
-
-  "login": {
+  "iniciarsesion": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='login-button']"
+    "ValueToFind": "//input[@id='ctl00_formularios_lgnIngreso_LoginButton']"
   },
-
-  "articulo1": {
+  "cerrarventana": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@name='add-to-cart-sauce-labs-backpack']"
+    "ValueToFind": "//a[@id='btnCancel']"
   },
-
-  "articulo2": {
+  "anoExpedien": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@name='add-to-cart-sauce-labs-bike-light']"
+    "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBAnio']"
   },
-
-  "verificar": {
+  "listadespegable": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@name='checkout']"
+    "ValueToFind": "//option"
   },
-
-  "nombreP": {
+  "numeroExpedien": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='firstName']"
+    "ValueToFind": "//input[@id='ctl00_formularios_acpDatosExpediente_content_txtBNumeroExpediente']"
   },
-
-  "nombreS": {
+  "Salir": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='lastName']"
+    "ValueToFind": "//a[contains(.,'Salir')]"
   },
-
-  "codigo": {
+  "Buscar": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='postalCode']"
+    "ValueToFind": "//input[@id='ctl00_formularios_btnMostrarBuscar']"
   },
-
-  "continuar": {
+  "estadoExpedi": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@name='continue']"
+    "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBEstadoExpediente']"
   },
-
-  "finalizar": {
+  "estadoCobroCo": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@name='finish']"
+    "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBEstadoCC']"
+  },,,
+  "areaproceso": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBAreaOrigenProceso']"
   },
-
-  "home": {
+  "buscar": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@name='back-to-products']"
+    "ValueToFind": "//input[@id='ctl00_formularios_btnBuscar']"
   },
-
-  "carrito": {
+  "seleccionar": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//a[@class='shopping_cart_link']"
+    "ValueToFind": "//a[contains(.,'Sel')]"
   },
-
-  "cancelar": {
+  "Generar plantilla": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@name='cancel']"
+    "ValueToFind": "//input[@id='ctl00_formularios_btnPlantillas']"
   },
-
-  "menu": {
+  "tipoPlantilla": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//button[@id='react-burger-menu-btn']"
+    "ValueToFind": "//select[@id='ctl00_formularios_ddlTipoPlantilla']"
   },
-
-  "logout": {
+  "tipoDocumento": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//a[@id='logout_sidebar_link']"
+    "ValueToFind": "//select[@id='ctl00_formularios_ddlTipoDocumento']"
+  },
+  "numeroFolio": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbNumeroFolios']"
+  },
+  "Seleccionar todos": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnSelecAll']"
+  },
+  "Asociar expediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnAsociarExpediente']"
+  },
+  "anoexpedeinet": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txtAnio']"
+  },
+  "numeroexpeti": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txtNumero']"
+  },
+  "direccionArea": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//select[@id='ctl00_formularios_ddlDireccion']"
+  },
+  "Consultar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnAgregar']"
+  },
+  "quiernresiva": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_ddlQuienRevisa']"
+  },
+  "quienfirma": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_ddlQuienFirma']"
+  },
+  "Encabezado": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_cbxDirectorEncargado']"
+  },
+  "Generar documento": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnGenerarDocumento']"
+  },
+  "DescargarDocumento": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Descargar documento')]"
   }
 }
