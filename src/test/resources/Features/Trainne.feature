@@ -18,7 +18,7 @@ Característica: Oficio Revision Banco
     #Buscar un expediente
 
     Dado agregar ano del expediente "2019" y numero expediente "7"
-    #Cuando agregar area origina proceso "Subdirección de vigilancia en Salud Publica"
+    Cuando agregar area origina proceso "Subdirección de vigilancia en Salud Publica"
     #Cuando agregar estado expediente "Expediente Creado en Direccion para reparto" y estado cobro coactivo "ACUERDOS DE PAGO"
     Entonces seleccionar boton "buscar"
 
@@ -34,10 +34,10 @@ Característica: Oficio Revision Banco
 
     Dado seleccionar boton "Seleccionar todos"
     Cuando seleccionar boton "Asociar expediente"
-    Entonces agregar ano expediente "2020" y numero del expedente "14"
+    #Entonces agregar ano expediente "2020" y numero del expedente "14"
 
-    Dado seleccionar direccion area origen "Subdirección de vigilancia en Salud Publica"
-    Cuando seleccionar boton "Consultar"
+    #Dado seleccionar direccion area origen "Subdirección de vigilancia en Salud Publica"
+    #Cuando seleccionar boton "Consultar"
     Entonces agregar quien revisa "Abogado Juridica" quien firma "Director Prueba"
 
     Dado seleccionar boton "Generar documento"

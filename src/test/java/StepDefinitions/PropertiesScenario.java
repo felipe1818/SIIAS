@@ -18,6 +18,7 @@ public class PropertiesScenario {
 
     @Dado("ingresar usuario {string} y contrasena {string}")
     public void ingresarusuariocontrasena(String usuario, String contrasena) throws Exception {
+        //functions.switchToNewTab("http://192.168.1.199/SIIAS/inicio/login.aspx", "SIIAS");
         functions.switchToNewTab("http://dev.saludcapital.gov.co/SiiasPruebas2/inicio/login.aspx", "SIIAS");
         functions.iLoadTheDOMInformation("Principal.json");
         functions.iSetElementWithText("usuario", usuario);
@@ -125,19 +126,72 @@ public class PropertiesScenario {
     @Entonces("agregar quien revisa {string} quien firma {string}")
     public void agregarquienresivaquienfirma(String quiernresiva, String quienfirma) throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
+        functions.iWaitTime(1);
+        functions.scrollToElement("quiernresiva");
         functions.iClicInElement("quiernresiva");
-        functions.iSelectContainsText("listadespegable", quiernresiva);
+        functions.iSelectContainsText("listadespegables", quiernresiva);
+        functions.scrollToElement("Encabezado");
         functions.iClicInElement("Encabezado");
+        functions.scrollToElement("quienfirma");
         functions.iClicInElement("quienfirma");
         functions.iSelectContainsText("listadespegable", quienfirma);
     }
 
     @Dado("descargar archivo")
     public void descargararchivo() throws Exception {
-        functions.iLoadTheDOMInformation("Princioal.json");
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("DescargarDocumento");
         functions.iClicInElement("DescargarDocumento");
         functions.attachScreenShot();
         functions.iClicInElement("Salir");
     }
+
+    @Dado("seleccionar el reporte Listado general")
+    public void seleccionarreporte() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("reporte");
+        functions.iClicInElement("reporte");
+        functions.attachScreenShot();
+    }
+
+    @Dado("seleccionar boton Generar reporte")
+    public void seleccionarbotongenerar() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("Generar reporte");
+        functions.iClicInElement("Generar reporte");
+        //functions.iWaitTime(40);
+        functions.attachScreenShot();
+    }@Dado("seleccionar boton Descargar reporte")
+    public void seleccionarbotongenera() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("Descargar reporte");
+        functions.iClicInElement("Descargar reporte");
+        functions.iWaitTime(2);
+        functions.attachScreenShot();
+    }
+
+    @Dado("seleccionar el reporte ingreso acuerdo pago")
+    public void seleccionarreporteingresopago() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("ingreso acuerdo pago");
+        functions.iClicInElement("ingreso acuerdo pago");
+        functions.attachScreenShot();
+    }
+
+    @Cuando("agregar fehca inicial {string} y fecha final {string}")
+    public void agregarfehcainicialfinal(String fechainicial, String fechafinal) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSetElementWithText("fechainicial", fechainicial);
+        functions.iSetElementWithText("fechafinal", fechafinal);
+    }
+
+    @Dado("descargar archivos reporte")
+    public void descargararchivoreporte() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("descargar");
+        functions.iWaitTime(5);
+    }
+
+
 
 }

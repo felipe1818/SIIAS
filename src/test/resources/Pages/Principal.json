@@ -22,6 +22,10 @@
   "listadespegable": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//option"
+  },,
+  "listadespegables": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "(//select[@id='ctl00_formularios_ddlQuienRevisa']//option)"
   },
   "numeroExpedien": {
     "GetFieldBy": "Xpath",
@@ -97,11 +101,11 @@
   },
   "quiernresiva": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@id='ctl00_formularios_ddlQuienRevisa']"
+    "ValueToFind": "//select[@id='ctl00_formularios_ddlQuienRevisa']"
   },
   "quienfirma": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@id='ctl00_formularios_ddlQuienFirma']"
+    "ValueToFind": "//select[@id='ctl00_formularios_ddlQuienFirma']"
   },
   "Encabezado": {
     "GetFieldBy": "Xpath",
@@ -109,10 +113,46 @@
   },
   "Generar documento": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@id='ctl00_formularios_btnGenerarDocumento']"
+    "ValueToFind": "//input[@value='Generar documento']"
   },
   "DescargarDocumento": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[contains(.,'Descargar documento')]"
+  },
+  "Reportes": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Reportes')]"
+  },
+  "reporte": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Listado General de Expedientes')]"
+  },
+  "Generar reporte": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnGenerarReporte']"
+  },
+  "Descargar reporte": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnDescargarReporte']"
+  },
+  "ingreso acuerdo pago": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Ingresos acuerdos de pagos')]"
+  },
+  "fechainicial": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rtvReporte_ctl04_ctl03_txtValue']"
+  },
+  "fechafinal": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rtvReporte_ctl04_ctl05_txtValue']"
+  },
+  "Visualizar reporte": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rtvReporte_ctl04_ctl00']"
+  },
+  "descargar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[@id='ctl00_formularios_rtvReporte_ctl05_ctl04_ctl00_ButtonLink']"
   }
 }
