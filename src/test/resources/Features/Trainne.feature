@@ -23,7 +23,7 @@ Característica: Oficio Revision Banco
     Entonces seleccionar boton "buscar"
 
     Dado seleccionar expediente
-    Cuando se visualiza la información del expediente
+    Cuando se visualiza la informacion del expediente
     Entonces seleccionar boton "Generar plantilla"
 
     #Generar plantilla

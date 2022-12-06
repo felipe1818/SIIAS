@@ -18,8 +18,8 @@ public class PropertiesScenario {
 
     @Dado("ingresar usuario {string} y contrasena {string}")
     public void ingresarusuariocontrasena(String usuario, String contrasena) throws Exception {
-        //functions.switchToNewTab("http://192.168.1.199/SIIAS/inicio/login.aspx", "SIIAS");
-        functions.switchToNewTab("http://dev.saludcapital.gov.co/SiiasPruebas2/inicio/login.aspx", "SIIAS");
+        functions.switchToNewTab("http://192.168.1.199/SIIAS/inicio/login.aspx", "SIIAS");
+        //functions.switchToNewTab("http://dev.saludcapital.gov.co/SiiasPruebas2/inicio/login.aspx", "SIIAS");
         functions.iLoadTheDOMInformation("Principal.json");
         functions.iSetElementWithText("usuario", usuario);
         functions.iSetElementWithText("contrasena", contrasena);
@@ -80,8 +80,8 @@ public class PropertiesScenario {
 
     }
 
-    @Cuando("se visualiza la información del expediente")
-    public void sevisualizainformaciónexpediente() throws IOException {
+    @Cuando("se visualiza la informacion del expediente")
+    public void sevisualizainformacionexpediente() throws IOException {
         functions.attachScreenShot();
     }
 
@@ -168,6 +168,7 @@ public class PropertiesScenario {
         functions.iClicInElement("Descargar reporte");
         functions.iWaitTime(2);
         functions.attachScreenShot();
+        functions.iClicInElement("Salir");
     }
 
     @Dado("seleccionar el reporte ingreso acuerdo pago")
@@ -190,6 +191,7 @@ public class PropertiesScenario {
         functions.iLoadTheDOMInformation("Principal.json");
         functions.iClicInElement("descargar");
         functions.iWaitTime(5);
+        functions.iClicInElement("Salir");
     }
 
 

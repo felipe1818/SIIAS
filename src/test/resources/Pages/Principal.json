@@ -154,5 +154,9 @@
   "descargar": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[@id='ctl00_formularios_rtvReporte_ctl05_ctl04_ctl00_ButtonLink']"
+  },
+  "pago y liquidacion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Liquidaci')]"
   }
 }
