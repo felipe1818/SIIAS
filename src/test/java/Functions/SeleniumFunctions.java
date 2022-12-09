@@ -98,6 +98,13 @@ public class SeleniumFunctions {
 
     }
 
+    public void iSendKeyLeftToPerform() throws Exception {
+
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.LEFT).build().perform();
+
+        log.info(String.format("Send Key left on element "));
+    }
     public static JSONObject ReadEntity(String element) throws Exception {
         JSONObject Entity = null;
 

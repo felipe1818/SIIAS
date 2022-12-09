@@ -143,9 +143,17 @@
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='ctl00_formularios_rtvReporte_ctl04_ctl03_txtValue']"
   },
+  "fechainicia": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaInicial']"
+  },
   "fechafinal": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='ctl00_formularios_rtvReporte_ctl04_ctl05_txtValue']"
+  },
+  "fechafina": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaFinal']"
   },
   "Visualizar reporte": {
     "GetFieldBy": "Xpath",
@@ -158,5 +166,161 @@
   "pago y liquidacion": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[contains(.,'Liquidaci')]"
+  },
+  "nexpediete": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbNumeroExpediente']"
+  },
+  "anoex": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbAnioExpediente']"
+  },
+  "valorcapital": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbValorCapital']"
+  },
+  "valorinteres": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbValorInteres']"
+  },
+  "Registrar pagos": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnRegistrarPago']"
+  },
+  "fechapago": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaPago']"
+  },
+  "valortotal": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbValorTotalPagado']"
+  },
+  "Cerrar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//button[contains(.,'Cerrar')]"
+  },
+  "cerrar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "(//button[contains(.,'Cerrar')])[2]"
+  },
+  "Bitacora": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "(//a[contains(.,'Bitacora')])[1]"
+  },
+  "Envio cobro": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "(//ul//a[contains(.,'Envio cobro')])[1]"
+  },
+  "Ver expedientes devueltos": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnEstadoEnvio']"
+  },
+  "ano": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txtAnio']"
+  },
+  "numeroexpediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txtNumExpediente']"
+  },
+  "Busca": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnBuscarExpediente']"
+  },
+  "Seleccionar todo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnSeleccionarTodos']"
+  },
+  "enviar Expediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnReenviarExpediente']"
+  },
+  "detalledevolucion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Detalle devoluci')]"
+  },
+  "Expedientes enviados": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Expedientes enviados')]"
+  },
+  "expediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[@id='ctl00_formularios_grdExpediente_ctl02_btnCantidadExpediente']"
+  },
+  "volverreporte": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnRegresar']"
+  },
+  "Verificar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Verificar')]"
+  },
+  "Requisitos": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Requisitos')]"
+  },
+  "Datos No": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rdb1DatosPersonalesNo']"
+  },
+  "Datos Si": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rdb1DatosPersonalesSi']"
+  },
+  "Documentos No": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnDocumentosNo']"
+  },
+  "Documentos Si": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnDocumentosSi']"
+  },
+  "Fecha No": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnEjecutoriaNo']"
+  },
+  "Fecha Si": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnEjecutoriaSi']"
+  },
+  "Multa No": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnResolucionNo']"
+  },
+  "Multa Si": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnResolucionSi']"
+  },
+  "obligacion No": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnObligacionNo']"
+  },
+  "obligacion Si": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_rbnObligacionSi']"
+  },
+  "motivoDevolucion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//textarea[@id='ctl00_formularios_txbMotivoDevolucion']"
+  },
+  "Aceptar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnAceptar']"
+  },
+  "Devolucion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Devolucion')]"
+  },
+  "selctdevolucion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_gdvExpedientesDevolucion_ctl02_cbxExpedienteDevolucion']"
+  },
+  "Devolver expediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnDevolver']"
+  },
+  "Bandeja de salida": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Bandeja de salida')]"
   }
 }

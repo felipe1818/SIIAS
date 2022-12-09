@@ -1,15 +1,17 @@
 # language: es
 @pagototal
-Característica: El usuario podra generar un expediente con los acuerdo depago
+Característica: El usuario podra agregar pagos
 
   Antecedentes:
-  Los usuario podran generar un reporte
+  Los usuario podra agregar pagos
 
-  Escenario: usuario podra generar un reporte
+  Escenario:  podra agregar pagos
 
     #login
 
-    Dado ingresar usuario "coordinadorsp" y contrasena "123$123"
+    Dado ingresar al ambiente
+
+    Dado ingresar usuario "coordinadorcc" y contrasena "123$123"
     Cuando se visualiza la pantalla de inicio
     Entonces seleccionar boton "Buscar"
 
@@ -17,7 +19,7 @@ Característica: El usuario podra generar un expediente con los acuerdo depago
     #Buscar un expediente
 
     Dado agregar ano del expediente "2019" y numero expediente "1"
-    #Cuando agregar area origina proceso "Subdirección de vigilancia en Salud Publica"
+    Cuando agregar area origina proceso "Subdirección de vigilancia en Salud Publica"
     #Cuando agregar estado expediente "Expediente Creado en Direccion para reparto" y estado cobro coactivo "ACUERDOS DE PAGO"
     Entonces seleccionar boton "buscar"
 
@@ -25,4 +27,14 @@ Característica: El usuario podra generar un expediente con los acuerdo depago
     Cuando se visualiza la informacion del expediente
     Entonces seleccionar boton "pago y liquidacion"
 
-    Dado seleccionar boton "Salir"
+    #pagototal
+
+    Dado verificar numero expediente y ano del expediente
+    Cuando verificar valor capital y valor interes
+    Entonces seleccionar boton "Registrar pagos"
+
+    #Apregar pago
+
+    Dado ingresar fecha de pago "7122022" y valor total pago
+    Cuando seleccionar boton "Cerrar"
+    Entonces seleccionar boton "Salir"
