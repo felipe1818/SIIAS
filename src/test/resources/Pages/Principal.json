@@ -322,5 +322,45 @@
   "Bandeja de salida": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[contains(.,'Bandeja de salida')]"
+  },
+  "Calcular valores": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnCalcularValores']"
+  },
+  "CIB": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbNumeroCIB']"
+  },
+  "consignacion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbNumeroConsignacion']"
+  },
+  "fechaCIB": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaCIB']"
+  },
+  "Guardar pago": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnGuardarPago']"
+  },
+  "numeroacta": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_ddlBNumeroInvesti']"
+  },
+  "actaselect": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_gdvInvestigacion_ctl02_cbxInvestigacion']"
+  },
+  "verarchivo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Ver archivo')]"
+  },
+  "Investigaciones": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//li/a[contains(.,'Investigaciones')]"
+  },
+  "Buscar acta": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnBuscar']"
   }
 }

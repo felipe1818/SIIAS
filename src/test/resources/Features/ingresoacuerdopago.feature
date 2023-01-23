@@ -9,14 +9,14 @@ Característica: El usuario podra generar un expediente con los acuerdo depago
 
     #login
 
-    Dado ingresar usuario "coordinadorcc" y contrasena "123$123"
-    Cuando se visualiza la pantalla de inicio
-    Entonces seleccionar boton "Reportes"
+    Dado ingresar al ambiente
+    Cuando ingresar usuario "coordinadorcc" y contrasena "123$123"
+    Entonces se visualiza la pantalla de inicio
 
     #reporte
 
-    Dado seleccionar el reporte ingreso acuerdo pago
-    Cuando agregar fehca inicial "01/05/2022" y fecha final "14/09/2022"
-    Entonces seleccionar boton "Visualizar reporte"
+    Dado seleccionar boton "Reportes"
+    Cuando seleccionar el reporte ingreso acuerdo pago
+    Entonces agregar fehca inicial "01/05/2022" y fecha final "14/09/2022"
 
     Dado descargar archivos reporte

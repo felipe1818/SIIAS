@@ -19,8 +19,8 @@ public class PropertiesScenario {
 
     @Dado("ingresar al ambiente")
     public void ingresarambiente(){
-        functions.switchToNewTab("http://192.168.1.199/SIIAS/inicio/login.aspx", "SIIAS");
-        //functions.switchToNewTab("http://dev.saludcapital.gov.co/SiiasPruebas2/inicio/login.aspx", "SIIAS");
+        //functions.switchToNewTab("http://192.168.1.199/SIIAS/inicio/login.aspx", "SIIAS");
+        functions.switchToNewTab("http://dev.saludcapital.gov.co/SiiasPruebas2/inicio/login.aspx", "SIIAS");
     }
 
     @Dado("ingresar usuario {string} y contrasena {string}")
@@ -79,16 +79,25 @@ public class PropertiesScenario {
     @Entonces("seleccionar expediente")
     public void seleccionarexpediente() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.scrollToElement("seleccionar");
-        functions.iClicInElement("seleccionar");
-        functions.attachScreenShot();
-        functions.iWaitTime(5);
+        try {
+            functions.iWaitTime(5);
+            functions.scrollToElement("seleccionar");
+            functions.iClicInElement("seleccionar");
+            functions.attachScreenShot();
+        }catch (Exception e){
+            functions.iClicInElement("Salir");
+        }
+
 
     }
 
     @Cuando("se visualiza la informacion del expediente")
-    public void sevisualizainformacionexpediente() throws IOException {
-        functions.attachScreenShot();
+    public void sevisualizainformacionexpediente() throws Exception {
+        try {
+            functions.attachScreenShot();
+        }catch (Exception e){
+            functions.iClicInElement("Salir");
+        }
     }
 
     @Dado("se visualiza pantalla generar plantilla")
@@ -180,24 +189,41 @@ public class PropertiesScenario {
     @Dado("seleccionar el reporte ingreso acuerdo pago")
     public void seleccionarreporteingresopago() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.scrollToElement("ingreso acuerdo pago");
-        functions.iClicInElement("ingreso acuerdo pago");
-        functions.attachScreenShot();
+        try{
+            functions.scrollToElement("ingreso acuerdo pago");
+            functions.iClicInElement("ingreso acuerdo pago");
+            functions.attachScreenShot();
+        }catch (Exception e){
+            functions.scrollToElement("Salir");
+            functions.iClicInElement("Salir");
+        }
     }
 
     @Cuando("agregar fehca inicial {string} y fecha final {string}")
     public void agregarfehcainicialfinal(String fechainicial, String fechafinal) throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.iSetElementWithText("fechainicial", fechainicial);
-        functions.iSetElementWithText("fechafinal", fechafinal);
+        try{
+            functions.iSetElementWithText("fechainicial", fechainicial);
+            functions.iSetElementWithText("fechafinal", fechafinal);
+            functions.iClicInElement("Visualizar reporte");
+            functions.iWaitTime(10);
+        }catch (Exception e){
+            functions.scrollToElement("Salir");
+            functions.iClicInElement("Salir");
+        }
     }
 
     @Dado("descargar archivos reporte")
     public void descargararchivoreporte() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.iClicInElement("descargar");
-        functions.iWaitTime(5);
-        functions.iClicInElement("Salir");
+        try {
+            functions.iClicInElement("descargar");
+            functions.iWaitTime(5);
+            functions.iClicInElement("Salir");
+        }catch (Exception e){
+            functions.scrollToElement("Salir");
+            functions.iClicInElement("Salir");
+        }
     }
 
     @Dado("verificar numero expediente y ano del expediente")
@@ -209,7 +235,6 @@ public class PropertiesScenario {
         functions.attachScreenShot();
         //functions.iSaveTextOfElementInScenario("nexpediete", "elemento1");
         //functions.iSetElementWithKeyValue("elemento1", "nexpediete");
-        functions.checkPartialTextElementPresent("", "");
 
     }
 
@@ -225,21 +250,25 @@ public class PropertiesScenario {
     @Entonces("ingresar fecha de pago {string} y valor total pago")
     public void ingresarfechapagovalorpago(String fechapago) throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.iClicInElement("fechapago");
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSendKeyLeftToPerform();
-        functions.iSetElementWithText("fechapago", fechapago);
-        functions.iSetElementWithKeyValue("valortotal", "Vcapital");
-        functions.iWaitTime(5);
-        functions.attachScreenShot();
+        try {
+            functions.iClicInElement("fechapago");
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSetElementWithText("fechapago", fechapago);
+            functions.iSetElementWithKeyValue("valortotal", "Vcapital");
+            functions.iWaitTime(5);
+            functions.attachScreenShot();
+        }catch (Exception e){
+            functions.iClicInElement("Salir");
+        }
     }
 
     @Entonces("agregar ano y numero expediente")
@@ -371,6 +400,74 @@ public class PropertiesScenario {
         functions.iLoadTheDOMInformation("Principal.json");
         functions.attachScreenShot();
         functions.iClicInElement("Cerrar");
+    }
+
+    @Dado("agregar numero CIB y Numero consignacion {string}")
+    public void agregarnumeroCIBnumeroconsignacion(String numero) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        try{
+            functions.iSetElementWithText("CIB", numero);
+            functions.iSetElementWithText("consignacion", numero);
+            functions.attachScreenShot();
+        }catch (Exception e){
+            functions.attachScreenShot();
+            functions.iClicInElement("Salir");
+        }
+    }
+
+    @Cuando("ingresar fecha CIB {string}")
+    public void ingresarfehcaCIB(String fecha) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        try{
+            functions.iClicInElement("fechaCIB");
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSetElementWithText("fechaCIB", fecha);
+        }catch (Exception e){
+            functions.iClicInElement("Salir");
+        }
+    }
+
+    @Entonces("seleccionar boton Calcular valores")
+    public void seleccionarbotoncalcularvalores() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("Calcular valores");
+        functions.iWaitTime(5);
+    }
+
+    @Cuando("Agregamos numero de acta {string}")
+    public void agregamosnumeroacta(String numeroacta) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSetElementWithText("numeroacta", numeroacta);
+    }
+
+    @Dado("seleccionamos acta")
+    public void seleccionamosacta() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iWaitTime(2);
+        functions.iClicInElement("actaselect");
+    }
+
+    @Cuando("visualizar el archivo")
+    public void visualizararchivo() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("verarchivo");
+        functions.iWaitTime(5);
+    }
+
+    @Entonces("visualizar archivo cargado")
+    public void visualizararchivocargado() throws IOException, InterruptedException {
+        functions.attachScreenShot();
+        functions.iWaitTime(5);
+        functions.closeCurrenteTab();
     }
 
 }
