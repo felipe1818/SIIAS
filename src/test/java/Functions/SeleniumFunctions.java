@@ -1267,6 +1267,7 @@ public class SeleniumFunctions {
         driver.close();
     }
 
+
     public void iLoadTheDOMInformation(String file) throws Exception {
 
         SeleniumFunctions.FileName = file;

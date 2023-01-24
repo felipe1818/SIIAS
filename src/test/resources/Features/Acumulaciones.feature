@@ -16,11 +16,31 @@
     #Buscamos posibles investigaciones
 
     Dado seleccionar boton "Investigaciones"
-    Cuando Agregamos numero de acta "SQ03N017215"
+    Cuando Agregamos numero de acta "SQ03S013406"
     Entonces seleccionar boton "Buscar acta"
 
-    Dado seleccionamos acta
-    #Cuando visualizar el archivo
-    #Entonces visualizar archivo cargado
+    Dado visualizar el archivo
+    Cuando visualizar archivo cargado
+    Entonces seleccionamos acta
 
     #Acumulacion
+
+    Dado seleccionar boton "Buscar coincidencia"
+    Cuando visualizar el archivo
+    Entonces visualizar archivo cargado
+
+    #Crear expediente
+
+    Dado seleccionamos coincidencia
+    Cuando seleccionar boton "Crear expediente"
+    Entonces Validar que se haya creado el expediente
+
+    #Buscar expediente
+
+    Dado seleccionar boton "Buscar expediente"
+    Cuando buscar expediente creado
+    Entonces seleccionar boton "Busca"
+
+    Dado seleccionar expediente
+    Cuando seleccionar boton "Acta"
+    Entonces seleccionar acta asociada al expediente

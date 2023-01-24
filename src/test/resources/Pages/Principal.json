@@ -362,5 +362,29 @@
   "Buscar acta": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='ctl00_formularios_btnBuscar']"
+  },
+  "Buscar coincidencia": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnCoincidencia']"
+  },
+  "coincidencia": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_tbcoincidencias_ctl02_cbxCoincidencia']"
+  },
+  "Crear expediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_BtnExpediente']"
+  },
+  "Buscar expediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//li/a[contains(.,'Buscar')]"
+  },
+  "seleccionarexpe": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Sel...')]"
+  },
+  "Acta": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Acta')]"
   }
 }

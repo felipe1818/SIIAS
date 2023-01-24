@@ -8,6 +8,7 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.E;
 import io.cucumber.java.es.Entonces;
 import org.checkerframework.checker.units.qual.C;
+import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
@@ -81,8 +82,8 @@ public class PropertiesScenario {
         functions.iLoadTheDOMInformation("Principal.json");
         try {
             functions.iWaitTime(5);
-            functions.scrollToElement("seleccionar");
-            functions.iClicInElement("seleccionar");
+            functions.scrollToElement("seleccionarexpe");
+            functions.iClicInElement("seleccionarexpe");
             functions.attachScreenShot();
         }catch (Exception e){
             functions.iClicInElement("Salir");
@@ -449,25 +450,52 @@ public class PropertiesScenario {
         functions.iSetElementWithText("numeroacta", numeroacta);
     }
 
-    @Dado("seleccionamos acta")
+    @Entonces("seleccionamos acta")
     public void seleccionamosacta() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.iWaitTime(2);
         functions.iClicInElement("actaselect");
+        functions.iWaitTime(2);
     }
 
-    @Cuando("visualizar el archivo")
+    @Dado("visualizar el archivo")
     public void visualizararchivo() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
         functions.iClicInElement("verarchivo");
         functions.iWaitTime(5);
     }
 
-    @Entonces("visualizar archivo cargado")
+    @Cuando("visualizar archivo cargado")
     public void visualizararchivocargado() throws IOException, InterruptedException {
         functions.attachScreenShot();
         functions.iWaitTime(5);
-        functions.closeCurrenteTab();
+        functions.switchToTab("SIIAS");
+
+    }
+
+    @Dado("seleccionamos coincidencia")
+    public void selecionarcoincidencia() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("coincidencia");
+        functions.iWaitTime(2);
+    }
+
+    @Entonces("Validar que se haya creado el expediente")
+    public void validarquesehayacreado() throws Exception {
+        functions.attachScreenShot();
+        functions.iSaveTextOfElementInScenario("Numeroinvestigacion", "//input[@id='ctl00_formularios_txtNumeroExpedienteID']");
+        functions.iSaveTextOfElementInScenario("Anoinvestigacion", "//select/option[@selected='selected']");
+    }
+
+    @Cuando("buscar expediente creado")
+    public void buscarexpedientecreado() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSetElementWithKeyValue("anoExpedien", "Anoinvestigacion");
+        functions.iSetElementWithKeyValue("numeroExpedien", "Numeroinvestigacion");
+    }
+
+    @Entonces("seleccionar acta asociada al expediente")
+    public void seleccionaractaasociadaexpediente(){
+        
     }
 
 }
