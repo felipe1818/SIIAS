@@ -10,13 +10,13 @@
     #login
 
     Dado ingresar al ambiente
-    Cuando ingresar usuario "coordinadorsp" y contrasena "123$124"
+    Cuando ingresar usuario "coordinadorsp" y contrasena "321$321"
     Entonces se visualiza la pantalla de inicio
 
     #Buscamos posibles investigaciones
 
     Dado seleccionar boton "Investigaciones"
-    Cuando Agregamos numero de acta "SQ03S013406"
+    Cuando Agregamos numero de acta "SQ03N017215"
     Entonces seleccionar boton "Buscar acta"
 
     Dado visualizar el archivo
@@ -39,12 +39,17 @@
 
     Dado seleccionar boton "Buscar expediente"
     Cuando buscar expediente creado
-    Entonces seleccionar boton "Busca"
+    Entonces seleccionar boton "buscar"
 
     Dado seleccionar expediente
     Cuando seleccionar boton "Acta"
     Entonces seleccionar acta asociada al expediente
 
     Dado desvincular acta
+    Cuando seleccionar boton "Investigaciones"
+    Entonces buscar numero de acta
+
+    Dado validar que no se visualize el acta
+
 
 

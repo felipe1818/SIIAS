@@ -503,7 +503,27 @@ public class PropertiesScenario {
     public void desvincularacta() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
         functions.iClicInElement("desvincular");
+        functions.AcceptAlert();
         functions.iSaveTextOfElementInScenario("numeroacta", "actanumero");
+    }
+
+    @Entonces("buscar numero de acta")
+    public void buscarnumeroacta() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSetElementWithKeyValue("numeroacta", "numeroacta");
+        functions.iClicInElement("Buscar acta");
+    }
+
+    @Dado("validar que no se visualize el acta")
+    public void valdiarnovisualizeacta() throws Exception {
+        try{
+            functions.iLoadTheDOMInformation("Principal.json");
+            functions.scrollToElement("actaselect");
+            functions.iWaitTime(2);
+            functions.attachScreenShot();
+        }catch (Exception e){
+            functions.iClicInElement("Salir");
+        }
     }
 
 }
