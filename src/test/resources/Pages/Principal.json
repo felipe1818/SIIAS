@@ -386,5 +386,17 @@
   "Acta": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[contains(.,'Acta')]"
+  },
+  "seleccionaracta": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Seleccionar...')]"
+  },
+  "desvincular": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnEliminar']"
+  },
+  "actanumero": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbNumeroActa']"
   }
 }

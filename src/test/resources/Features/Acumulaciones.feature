@@ -10,7 +10,7 @@
     #login
 
     Dado ingresar al ambiente
-    Cuando ingresar usuario "digitadorsp" y contrasena "123$124"
+    Cuando ingresar usuario "coordinadorsp" y contrasena "123$124"
     Entonces se visualiza la pantalla de inicio
 
     #Buscamos posibles investigaciones
@@ -44,3 +44,7 @@
     Dado seleccionar expediente
     Cuando seleccionar boton "Acta"
     Entonces seleccionar acta asociada al expediente
+
+    Dado desvincular acta
+
+

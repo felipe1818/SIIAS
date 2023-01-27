@@ -494,8 +494,16 @@ public class PropertiesScenario {
     }
 
     @Entonces("seleccionar acta asociada al expediente")
-    public void seleccionaractaasociadaexpediente(){
-        
+    public void seleccionaractaasociadaexpediente() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("seleccionaracta");
+    }
+
+    @Dado("desvincular acta")
+    public void desvincularacta() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("desvincular");
+        functions.iSaveTextOfElementInScenario("numeroacta", "actanumero");
     }
 
 }
