@@ -56,6 +56,9 @@ public class PropertiesScenario {
         functions.iClicInElement("anoExpedien");
         functions.iSelectContainsText("listadespegable", anoExpedien);
         functions.iSetElementWithText("numeroExpedien", numeroExpedien);
+
+        functions.iSaveTextOfElementInScenario("AnoExp", "anoExpedien");
+        functions.iSaveTextOfElementInScenario("Expediente", "numeroExpedien");
         functions.attachScreenShot();
 
     }
@@ -526,4 +529,196 @@ public class PropertiesScenario {
         }
     }
 
+    @Dado("seleccionar acto administrativo")
+    public void seleccioanractoadminstrativo() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        try{
+            functions.scrollToElement("seleccionarActoadmin");
+            functions.iClicInElement("seleccionarActoadmin");
+        }catch (Exception e){
+            //Crear actas admiciones
+            functions.scrollToElement("BtnAgregar");
+            functions.iClicInElement("BtnAgregar");
+            //agregar tipo acta
+            functions.scrollToElement("TipoActo");
+            functions.iClicInElement("TipoActo");
+            functions.iSelectContainsText("listadespegable", "fallo");
+            //seleccionar sancion
+            functions.iClicInElement("Sancionpecuniaria");
+            //agregar fecha acta
+            functions.scrollToElement("FechaActo");
+            functions.iClicInElement("FechaActo");
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSetElementWithText("FechaActo", "01022023");
+            //agregar numero acta
+            functions.scrollToElement("NumeroActo");
+            functions.iSetElementWithText("NumeroActo", "11232");
+            //agregar abogado
+            functions.scrollToElement("AbogadoQuienGenera");
+            functions.iClicInElement("AbogadoQuienGenera");
+            functions.iSelectContainsText("listadespegable", "Alba");
+            //Agregar observaciones
+            functions.scrollToElement("descripcion");
+            functions.iSetElementWithKeyValue("descripcion", "Prueba");
+            //Firmas
+
+            functions.scrollToElement("QuienRevisa");
+            functions.iClicInElement("QuienRevisa");
+            functions.iSelectContainsText("listadespegable", "Ardila");
+
+            functions.scrollToElement("QuienAprueba");
+            functions.iClicInElement("QuienAprueba");
+            functions.iSelectContainsText("listadespegable", "Lozano");
+
+            functions.scrollToElement("QuienFirma");
+            functions.iClicInElement("QuienFirma");
+            functions.iSelectContainsText("listadespegable", "Lozano");
+
+            functions.scrollToElement("seleccionarinvestigado");
+            functions.iClicInElement("seleccionarinvestigado");
+
+            functions.scrollToElement("ValorMulta");
+            functions.iSetElementWithText("ValorMulta", "500000");
+            functions.scrollToElement("BtnGuardar");
+            functions.iClicInElement("BtnGuardar");
+
+            functions.iWaitTime(5);
+            functions.attachScreenShot();
+
+            functions.scrollToElement("BtnVolver");
+            functions.iClicInElement("BtnVolver");
+
+            functions.scrollToElement("seleccionarActoadmin");
+            functions.iClicInElement("seleccionarActoadmin");
+        }
+    }
+
+    @Cuando("seleccionar recurso")
+    public void seleccioanrrecurso() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        try{
+            functions.scrollToElement("seleccionarecurso");
+            functions.iClicInElement("seleccionarecurso");
+            functions.iWaitTime(2);
+            functions.iSaveTextOfElementInScenario("TipoRecurso", "TipoRecursos");
+            String TipoRecurso = functions.ScenaryData.get("TipoRecurso");
+
+            if (TipoRecurso.equals("Queja")){
+                functions.scrollToElement("TipoRecursos");
+                functions.iClicInElement("TipoRecursos");
+                functions.iSelectContainsText("listadespegable", "Reposici");
+                functions.iWaitTime(5);
+                functions.scrollToElement("BtnEliminar");
+                functions.iClicInElement("BtnEliminar");
+                functions.AcceptAlert();
+                functions.iWaitTime(5);
+                functions.scrollToElement("BtnVolverExpediente");
+                functions.iClicInElement("BtnVolverExpediente");
+            }else{
+                functions.scrollToElement("BtnVolverExpediente");
+                functions.iClicInElement("BtnVolverExpediente");
+            }
+        }catch (Exception e){
+            functions.iClicInElement("SeleccionarSancionado");
+            functions.scrollToElement("TipoRecursos");
+            functions.iClicInElement("TipoRecursos");
+            functions.iSelectContainsText("listadespegable", "Reposici");
+
+            functions.iSetElementWithText("NumeroRadicado", "112233");
+
+            functions.scrollToElement("FechaRadicado");
+            functions.iClicInElement("FechaRadicado");
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSendKeyLeftToPerform();
+            functions.iSetElementWithText("FechaRadicado", "01022023");
+
+            //functions.scrollToElement("BtnAgregar");
+            //functions.iClicInElement("BtnAgregar");
+            functions.iWaitTime(2);
+            functions.scrollToElement("BtnVolverExpediente");
+            functions.iClicInElement("BtnVolverExpediente");
+
+
+        }
+    }
+
+    @Cuando("cargar archivo pdf")
+    public void cargararchivopdf() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.SaveInScenarioFile("documento", "pdf");
+        functions.iSetElementWithKeyValue("CargarArchivo", "documento");
+
+        functions.scrollToElement("TipoArchivo");
+        functions.iClicInElement("TipoArchivo");
+        functions.iSelectContainsText("listadespegable", "Para Cobro Coactivo");
+
+        functions.scrollToElement("DescripcionArchivo");
+        functions.iSetElementWithText("DescripcionArchivo", "Prueba");
+
+        functions.scrollToElement("BtnGuardar");
+        functions.iClicInElement("BtnGuardar");
+
+        functions.scrollToElement("BtnVolver");
+        functions.iClicInElement("BtnVolver");
+    }
+
+    @Entonces("validar que el archivo se haya creado")
+    public void validararchivocreado() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("VerArchivo");
+        functions.iClicInElement("VerArchivo");
+        functions.checkIfElementIsPresent("//th[contains(.,'Tipo archivo')]/../../tr/td[contains(.,'Para Cobro Coactivo')]");
+        functions.scrollToElement("BtnVolver");
+        functions.iClicInElement("BtnVolver");
+
+    }
+
+    @Dado("Generamos fecha ejecutoria")
+    public void generamosfechaejecutoria() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.scrollToElement("FechaEjecutoria");
+        functions.iClicInElement("FechaEjecutoria");
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSetElementWithText("FechaEjecutoria", "01022023");
+
+        functions.iClicInElement("Calcular");
+        functions.iWaitTime(5);
+        functions.scrollToElement("AcualizarInvesigcion");
+        functions.iClicInElement("AcualizarInvesigcion");
+        functions.iWaitTime(5);
+    }
+    @Dado("Validar que el expediente este pendiente para ser enviado a cobro coativo")
+    public void validarexpedientependienteenviadocabrocoativo() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("EnviarExpediente");
+        String Expediente = functions.ScenaryData.get("Expediente");
+        String AnoExp = functions.ScenaryData.get("AnoExp");
+        functions.iSelectContainsKey("//th[contains(.,'# Exp.')]/../../tr/td", "Expediente");
+    }
 }

@@ -22,7 +22,7 @@
   "listadespegable": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//option"
-  },,
+  },
   "listadespegables": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "(//select[@id='ctl00_formularios_ddlQuienRevisa']//option)"
@@ -46,7 +46,7 @@
   "estadoCobroCo": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBEstadoCC']"
-  },,,
+  },
   "areaproceso": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBAreaOrigenProceso']"
@@ -383,6 +383,10 @@
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[contains(.,'Sel...')]"
   },
+  "seleccionarActoadmin": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//td[contains(.,'fallo')]/../td/a"
+  },
   "Acta": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//a[contains(.,'Acta')]"
@@ -398,5 +402,157 @@
   "actanumero": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='ctl00_formularios_txbNumeroActa']"
+  },
+  "Actos adminsitrativos": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Actos administrativos')]"
+  },
+  "BtnAgregar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Agregar']"
+  },
+  "TipoActo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Tipo de Acto')]/../select"
+  },
+  "FechaActo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Fecha del acto')]/../input"
+  },
+  "AbogadoQuienGenera": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Abogado qui')]/../select"
+  },
+  "descripcion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Observaciones')]/../textarea"
+  },
+  "QuienProyecta": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Quien proyecta')]/../select"
+  },
+  "QuienRevisa": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Quien revisa')]/../select"
+  },
+  "QuienAprueba": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Quien aprueba')]/../select"
+  },
+  "QuienFirma": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Quien firma')]/../select"
+  },
+  "seleccionarinvestigado": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Datos del(os)')]/../../table/tbody/tr/td/input[@id='ctl00_formularios_cbxInvestigado324398']"
+  },
+  "BtnGuardar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Guardar']|//input[@value='Guardar ']"
+  },
+  "Sancionpecuniaria": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input/../label[contains(.,'Sanción')]"
+  },
+  "NumeroActo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//span[contains(.,'Número de Acto')]/../input"
+  },
+  "ValorMulta": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//b[contains(.,'Valor multa')]/../../../../tr/td/input[@id='ctl00_formularios_txbValorMulta324398']"
+  },
+  "BtnVolver": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Volver']"
+  },
+  "Recurso": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[contains(.,'Recurso')]"
+  },
+  "seleccionarecurso": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//td[contains(.,'Reposici')]/../td/a"
+  },
+  "TipoRecursos": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//td[contains(.,'Tipo de ')]/../../tr/td/select"
+  },
+  "BtnActualizar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Actualizar']"
+  },
+  "BtnEliminar": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Eliminar']"
+  },
+  "SeleccionarSancionado": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@type='radio']"
+  },
+  "NumeroRadicado": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbRadicadoRecurso']"
+  },
+  "FechaRadicado": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaRecurso']"
+  },
+  "NumeroRadicadoEnvio": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaRecurso']"
+  },
+  "FechaEnvio": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaRadicadoEnvioJuridica']"
+  },
+  "NumeroRadicadoDevuelto": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaRadicadoEnvioJuridica']"
+  },
+  "FechaDevuelto": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaRadicadoEnvioJuridica']"
+  },
+  "BtnVolverExpediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Volver al Expediente']"
+  },
+  "Cargar archivo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Cargar archivo']"
+  },
+  "CargarArchivo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@type='file']"
+  },
+  "TipoArchivo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//select[@id='ctl00_formularios_ddlTipoArchivo']"
+  },
+  "DescripcionArchivo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbDescripcionArchivo']"
+  },
+  "VerArchivo": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Ver archivos']"
+  },
+  "Calcular": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Calcular']"
+  },
+  "AcualizarInvesigcion": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnActualizarInvestigacion']"
+  },
+  "EnviarExpediente": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Enviar expedientes']"
+  },
+  "FechaEjecutoria": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_txbFechaEjecutoria']"
   }
 }
