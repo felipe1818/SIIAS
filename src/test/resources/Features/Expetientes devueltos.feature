@@ -46,7 +46,7 @@ Característica: El usuario devolver expedientes
     Entonces seleccionar boton "Ver expedientes devueltos"
 
     Dado agregar ano y numero expediente
-    Cuando seleccionar boton "Busca"
+    Cuando seleccionar boton "Buscar"
     Entonces seleccionar boton "Seleccionar todo"
 
     Dado visualizar detalle devolucion
@@ -58,7 +58,7 @@ Característica: El usuario devolver expedientes
     Entonces seleccionar boton "Expedientes enviados"
 
     Dado agregamos fecha inicial "01112022" y fecha final "07122022"
-    Cuando seleccionar boton "Busca"
+    Cuando seleccionar boton "Buscar"
     Entonces seleccionamos expediente a visualizar
 
     Dado volvemos al reporte

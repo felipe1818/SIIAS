@@ -37,7 +37,7 @@
   },
   "Buscar": {
     "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@id='ctl00_formularios_btnMostrarBuscar']"
+    "ValueToFind": "//input[@id='ctl00_formularios_btnMostrarBuscar']|//input[@id='ctl00_formularios_btnMostrarBuscar']|//input[@id='ctl00_formularios_btnBuscar']|//input[@id='ctl00_formularios_btnBuscarExpediente']"
   },
   "estadoExpedi": {
     "GetFieldBy": "Xpath",
@@ -50,10 +50,6 @@
   "areaproceso": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//select[@id='ctl00_formularios_acpDatosExpediente_content_ddlBAreaOrigenProceso']"
-  },
-  "buscar": {
-    "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@id='ctl00_formularios_btnBuscar']"
   },
   "seleccionar": {
     "GetFieldBy": "Xpath",
@@ -222,10 +218,6 @@
   "numeroexpediente": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='ctl00_formularios_txtNumExpediente']"
-  },
-  "Busca": {
-    "GetFieldBy": "Xpath",
-    "ValueToFind": "//input[@id='ctl00_formularios_btnBuscarExpediente']"
   },
   "Seleccionar todo": {
     "GetFieldBy": "Xpath",
@@ -554,5 +546,13 @@
   "FechaEjecutoria": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='ctl00_formularios_txbFechaEjecutoria']"
+  },
+  "EditarFechaEjecutoria": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnEditarFechaEjecutoria']"
+  },
+  "GuardarFechaEjecutoria": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='ctl00_formularios_btnGuardarFechaEjecutora']"
   }
 }

@@ -1,11 +1,11 @@
 package StepDefinitions;
 
 import Functions.SeleniumFunctions;
+import io.cucumber.java.an.E;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
-import io.cucumber.java.es.E;
 import io.cucumber.java.es.Entonces;
 import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
@@ -37,8 +37,12 @@ public class PropertiesScenario {
     @Cuando("se visualiza la pantalla de inicio")
     public void visualizapantallainicio() throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
-        functions.iClicInElement("cerrarventana");
-        functions.attachScreenShot();
+        try{
+            functions.iClicInElement("cerrarventana");
+            functions.attachScreenShot();
+        }catch (Exception e){
+            System.out.print("No se encontro pestaña");
+        }
     }
 
     @Entonces("seleccionar boton {string}")
@@ -628,26 +632,26 @@ public class PropertiesScenario {
                 functions.iClicInElement("BtnVolverExpediente");
             }
         }catch (Exception e){
-            functions.iClicInElement("SeleccionarSancionado");
-            functions.scrollToElement("TipoRecursos");
-            functions.iClicInElement("TipoRecursos");
-            functions.iSelectContainsText("listadespegable", "Reposici");
+            //functions.iClicInElement("SeleccionarSancionado");
+            //functions.scrollToElement("TipoRecursos");
+            //functions.iClicInElement("TipoRecursos");
+            //functions.iSelectContainsText("listadespegable", "Reposici");
 
-            functions.iSetElementWithText("NumeroRadicado", "112233");
+            //functions.iSetElementWithText("NumeroRadicado", "112233");
 
-            functions.scrollToElement("FechaRadicado");
-            functions.iClicInElement("FechaRadicado");
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSendKeyLeftToPerform();
-            functions.iSetElementWithText("FechaRadicado", "01022023");
+            //functions.scrollToElement("FechaRadicado");
+            //functions.iClicInElement("FechaRadicado");
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSendKeyLeftToPerform();
+            //functions.iSetElementWithText("FechaRadicado", "01022023");
 
             //functions.scrollToElement("BtnAgregar");
             //functions.iClicInElement("BtnAgregar");
@@ -690,8 +694,8 @@ public class PropertiesScenario {
 
     }
 
-    @Dado("Generamos fecha ejecutoria")
-    public void generamosfechaejecutoria() throws Exception {
+    @Dado("Generamos fecha ejecutoria {string}")
+    public void generamosfechaejecutoria(String fechaejecutoria) throws Exception {
         functions.iLoadTheDOMInformation("Principal.json");
         functions.scrollToElement("FechaEjecutoria");
         functions.iClicInElement("FechaEjecutoria");
@@ -705,7 +709,7 @@ public class PropertiesScenario {
         functions.iSendKeyLeftToPerform();
         functions.iSendKeyLeftToPerform();
         functions.iSendKeyLeftToPerform();
-        functions.iSetElementWithText("FechaEjecutoria", "01022023");
+        functions.iSetElementWithText("FechaEjecutoria", fechaejecutoria);
 
         functions.iClicInElement("Calcular");
         functions.iWaitTime(5);
@@ -720,5 +724,125 @@ public class PropertiesScenario {
         String Expediente = functions.ScenaryData.get("Expediente");
         String AnoExp = functions.ScenaryData.get("AnoExp");
         functions.iSelectContainsKey("//th[contains(.,'# Exp.')]/../../tr/td", "Expediente");
+    }
+
+    @Dado("verificar que el estado haya cambiado a {string}")
+    public void verifcarestadoexpedinete(String estadoexpedente) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.checkIfElementIsPresent("(//td[contains(.,'"+estadoexpedente+"')])[2]");
+    }
+
+    @Cuando("verificar que el estado haya cambiado a {string} y el area a {string}")
+    public void verificarestadocambiadoestadoyarea(String EstadoExpediente, String AreaResponsable) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.checkIfElementIsPresent("//td[contains(.,'"+EstadoExpediente+"')]/../td[contains(.,'"+AreaResponsable+"')]");
+    }
+
+    @Cuando("obtenemos numero radicado")
+    public void obtenrenumeroradicado() throws Exception {
+        functions.iSaveTextOfElementInScenario("radicado", "//td");
+    }
+
+    @Entonces("ingresar al ultimo paginado")
+    public void ingresarultimopagiando() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iSaveTextOfElementInScenario("paginado", "//tr/td/table");
+        try{
+            for(int i = 0; i < 100; i++){
+                functions.iClicInElement("//a[contains(.,'"+i+"')]");
+            }
+        }catch (Exception e){
+            System.out.print("Ingresamos al ultimo paginado");
+            try{
+                for(int i = 1; i <= 10; i++){
+                    functions.iSaveTextOfElementInScenario("NumeroRadicado","(//tr/td[contains(.,'VSP')]/../td[2])["+i+"]");
+                }
+            }catch (Exception I){
+                String NumeroRadicado = functions.ScenaryData.get("NumeroRadicado");
+                System.out.print(NumeroRadicado);
+            }
+        }
+        
+    }
+
+    @Dado("ingresar al radicado")
+    public void ingresarradicado() throws Exception {
+        String NumeroRadicado = functions.ScenaryData.get("NumeroRadicado");
+        String Radicado = functions.ScenaryData.get("radicado");
+        String Expediente = functions.ScenaryData.get("Expediente");
+        try{
+            functions.scrollToElement("//td[contains(.,'"+Radicado+"')]/../td/a");
+            functions.iClicInElement("//td[contains(.,'"+Radicado+"')]/../td/a");
+            functions.scrollToElement("//td[contains(.,'"+Expediente+"')]/../td/a");
+            functions.iClicInElement("//td[contains(.,'"+Expediente+"')]/../td/a");
+
+        }catch (Exception e){
+            functions.scrollToElement("//td[contains(.,'"+NumeroRadicado+"')]/../td/a");
+            functions.iClicInElement("//td[contains(.,'"+NumeroRadicado+"')]/../td/a");
+            functions.scrollToElement("//td[contains(.,'"+Expediente+"')]/../td/a");
+            functions.iClicInElement("//td[contains(.,'"+Expediente+"')]/../td/a");
+        }
+    }
+
+    @Cuando("devolver expediente a salud publica")
+    public void devolverexpedeintesaludpublica() throws Exception {
+        String Radicado = functions.ScenaryData.get("radicado");
+        String Expediente = functions.ScenaryData.get("Expediente");
+        functions.iClicInElement("//td[contains(.,'"+Radicado+"')]/../td[contains(.,'"+Expediente+"')]/../td/input");
+        functions.iWaitTime(2);
+        functions.iClicInElement("Devolver expediente");
+        functions.iClicInElement("//button[contains(.,'Cerrar')]");
+    }
+
+    @Entonces("ingresar filtro del expediente")
+    public void ingresarfiltroexpediente() throws Exception {
+        functions.iSetElementWithKeyValue("ano", "AnoExp");
+        functions.iSetElementWithKeyValue("numeroexpediente", "Expediente");
+        functions.iClicInElement("Buscar");
+
+    }
+
+    @Dado("visualizar los ajustes y ingresar al expediente")
+    public void visualizarajustesingresarexpediente() throws Exception {
+        String Radicado = functions.ScenaryData.get("radicado");
+        String Expediente = functions.ScenaryData.get("Expediente");
+        functions.iClicInElement("//td[contains(.,'"+Radicado+"')]/../td[contains(.,'"+Expediente+"')]/../td/a[contains(.,'Detalle')]");
+        functions.iWaitTime(2);
+        functions.attachScreenShot();
+        functions.iClicInElement("Cerrar");
+        functions.iClicInElement("//td[contains(.,'"+Radicado+"')]/../td[contains(.,'"+Expediente+"')]/../td/a[contains(.,'Ver Expediente')]");
+        functions.iWaitTime(2);
+    }
+
+    @Dado("editar fecha ejecutoria {string}")
+    public void editarfechaejecutoria(String fechaejecutoria) throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        functions.iClicInElement("EditarFechaEjecutoria");
+        functions.iWaitTime(2);
+        functions.scrollToElement("FechaEjecutoria");
+        functions.iClicInElement("FechaEjecutoria");
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSendKeyLeftToPerform();
+        functions.iSetElementWithText("FechaEjecutoria", fechaejecutoria);
+        functions.iClicInElement("Calcular");
+        functions.iWaitTime(5);
+        functions.iClicInElement("GuardarFechaEjecutoria");
+    }
+
+    @Entonces("reenviar expediente a cobro coativo")
+    public void reenviarexpedeintecobrocoativo() throws Exception {
+        functions.iLoadTheDOMInformation("Principal.json");
+        String Radicado = functions.ScenaryData.get("radicado");
+        String Expediente = functions.ScenaryData.get("Expediente");
+        functions.iClicInElement("//td[contains(.,'"+Radicado+"')]/../td[contains(.,'"+Expediente+"')]/../td/input");
+        functions.iClicInElement("enviar Expediente");
     }
 }
